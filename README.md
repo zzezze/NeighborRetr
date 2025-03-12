@@ -10,4 +10,6 @@
 
 The code implementation for NeighborRetr is currently undergoing active refactoring to ensure optimal performance and ease of use. We plan to open source the improved version very soon. Stay tuned for updates!
 
+## Acknowledgement
 
+Our code is based on [HBI](https://github.com/jpthu17/HBI). We sincerely appreciate for their contributions.
