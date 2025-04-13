@@ -1,0 +1,13 @@
+decord
+pandas
+ftfy
+regex
+tqdm
+opencv-python
+functional
+timm
+boto3
+wandb
+numpy==1.22.4
+torch==1.13.1+cu117
+torchvision==0.14.1+cu117

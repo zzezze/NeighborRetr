@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="NeighborRetr is a novel framework that balances hub centrality in cross-modal retrieval, achieving state-of-the-art results on multiple cross-modal retrieval benchmarks.">
+  <meta name="keywords" content="NeighborRetr, Cross-Modal Retrieval, Hub Centrality">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    .pink {
+      color: #6495ED;
+    }
+    .logo {
+      height: 50px; /* Smaller size */
+      margin-right: 5px;
+    }
+    h2.title.is-3 {
+      color: #6495ED;
+    }
+    h3.title.is-4 {
+      color: #6495ED;
+      text-align: center;
+    }
+    /* Styling for the specific experiment videos */
+    .experiment-video-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .experiment-video-category {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .experiment-video-category h3 {
+      margin-bottom: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .experiment-video-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .experiment-video-item {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    /* Apply styles only to the experiment videos */
+    .experiment-video-1 {
+      width: 210px;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+    .experiment-video-2 {
+      width: 215px;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    /* Added styling for figure images */
+    .figure-container {
+      margin: 30px 0;
+      text-align: center;
+    }
+    
+    .figure-image {
+      max-width: 90%;
+      margin: 0 auto;
+      border: 1px solid #eaeaea;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .smaller-image {
+      max-width: 80%;
+    }
+    
+    .medium-image {
+      max-width: 100%;
+    }
+  </style>  
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title jumbotron-heading">
+            <span class="pink"> NeighborRetr</span>: Balancing <span class="pink">Hub</span> Centrality in <br> 
+            Cross-Modal Retrieval
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Zengrong Lin<sup>1</sup>,</span>
+            <span class="author-block">
+              Zheng Wang<sup>1</sup>,</span>
+            <span class="author-block">
+              Tianwen Qian<sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Pan Mu<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Sixian Chan<sup>1</sup>,
+            </span>
+            <span class="author-block">
+              Cong Bai<sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Zhejiang University of Technology,</span>
+            <span class="author-block"><sup>2</sup>East China Normal University,</span><br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2503.10526.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zzezze/NeighborRetr"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>            
+            Cross-modal retrieval aims to bridge the semantic gap between different modalities, 
+            such as visual and textual data, enabling accurate retrieval across them. Despite significant 
+            advancements with models like CLIP that align cross-modal representations, a persistent 
+            challenge remains: the hubness problem, where a small subset of samples (hubs) dominate 
+            as nearest neighbors, leading to biased representations and degraded retrieval accuracy. 
+            Existing methods often mitigate hubness through post-hoc normalization techniques, relying 
+            on prior data distributions that may not be practical in real-world scenarios. 
+            In this paper, we directly mitigate hubness during training and introduce NeighborRetr, 
+            a novel method that effectively balances the learning of hubs and adaptively adjusts the 
+            relations of various kinds of neighbors. Our approach not only mitigates the hubness problem 
+            but also enhances retrieval performance, achieving state-of-the-art results on multiple
+            cross-modal retrieval benchmarks. Furthermore, NeighborRetr demonstrates robust generalization 
+            to new domains with substantial distribution shifts, highlighting its effectiveness in real-world applications.
+          </p>
+          
+          <div class="figure-container">
+            <img src="./static/images/Head.png" class="figure-image" alt="Hubness Balancing and Good/Bad Neighbors Identification">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Hubness Analysis</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Our analysis reveals vanilla CLIP creates a problematic distribution with bad hubs dominating retrieval results. Examining k-occurrence frequency, we observe: (1) bad hubs with large Nk(x) frequently appear in top-15 nearest neighbors, (2) good neighbors distribute across lower frequencies, and (3) many anti-hubs rarely appear in retrievals. NeighborRetr significantly reduces bad hubs, enhances good ones, and minimizes anti-hubs, creating a balanced embedding space better aligned with ground truth.
+          </p>
+          
+          <div class="figure-container">
+            <img src="./static/images/Hub_Observation.png" class="figure-image smaller-image" alt="Distribution of k-occurrence frequency">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative Results</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            NeighborRetr effectively ranks videos relevant to text queries by balancing similarity and centrality scores. Higher-ranked videos show larger gaps between similarity and centrality values, indicating our model's ability to prioritize less central samples and reduce bias towards over-represented data. For neighborhoods in Rank 2-5, our method identifies good neighbors while maintaining semantic diversity, showcasing adaptability to various contexts.
+          </p>
+          
+          <div class="figure-container">
+            <img src="./static/images/Visualization.png" class="figure-image medium-image" alt="Text-to-video retrieval results">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Quantitative Analysis</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Our experiments demonstrate NeighborRetr's robust cross-domain generalization between MSR-VTT and ActivityNet datasets. When trained on MSR-VTT and tested on ActivityNet, our method achieves the lowest hub occurrence and best retrieval performance, indicating that addressing hubness during training significantly benefits cross-domain adaptation. Unlike QB-Norm that uses test-time adjustments, our approach performs better when facing large distribution shifts.
+          </p>
+          
+          <div class="figure-container">
+            <img src="./static/images/Cross-domain.png" class="figure-image smaller-image" alt="Cross-domain adaptation">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lin2025neighborretr,
+    title={NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval},
+    author={Lin, Zengrong and Wang, Zheng and Qian, Tianwen and Mu, Pan and Chan, Sixian and Bai, Cong},
+    journal={arXiv preprint arXiv:2503.10526},
+    year={2025}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+          <p>
+            Website source based on this <a href="https://github.com/nerfies/nerfies.github.io">source code</a>. We also incorporated design elements from <a href="https://diffusion-with-forward-models.github.io/">DFM</a>.
+          </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
