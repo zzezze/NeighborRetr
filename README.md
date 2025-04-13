@@ -12,6 +12,17 @@ The official implementation of **CVPR 2025** paper: [NeighborRetr: Balancing Hub
 
 > **TL;DR:** *NeighborRetr tackles the hubness problem in cross-modal retrieval by distinguishing between good hubs (relevant) and bad hubs (irrelevant) during training, offering a direct solution rather than relying on post-processing methods that require prior data distributions.*
 
+## 📌 Citation
+If you find this paper useful, please consider starring 🌟 this repo and citing 📑 our paper:
+```bibtex
+@article{lin2025neighborretr,
+  title={NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval},
+  author={Lin, Zengrong and Wang, Zheng and Qian, Tianwen and Mu, Pan and Chan, Sixian and Bai, Cong},
+  journal={arXiv preprint arXiv:2503.10526},
+  year={2025}
+}
+```
+
 ## 🌟 Overview
 
 The **hubness problem** in cross-modal retrieval refers to the phenomenon where certain items (hubs) frequently emerge as the nearest neighbors to many other samples, while the majority of samples rarely appear as neighbors. This leads to biased representations and degraded retrieval accuracy. Unlike previous approaches that apply post-hoc normalization techniques during inference, NeighborRetr introduces a novel approach that:
@@ -25,16 +36,7 @@ The **hubness problem** in cross-modal retrieval refers to the phenomenon where 
 <img src="static/images/Head.png" width="800px">
 </div>
 
-## 📌 Citation
-If you find this paper useful, please consider starring 🌟 this repo and citing 📑 our paper:
-```bibtex
-@article{lin2025neighborretr,
-  title={NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval},
-  author={Lin, Zengrong and Wang, Zheng and Qian, Tianwen and Mu, Pan and Chan, Sixian and Bai, Cong},
-  journal={arXiv preprint arXiv:2503.10526},
-  year={2025}
-}
-```
+
 
 ## 😍 Visualization
 
