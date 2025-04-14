@@ -3,7 +3,7 @@
 # NeighborRetr: Balancing Hub Centrality in Cross-Modal Retrieval (CVPR'2025 🔥)
   
 [![Conference](https://img.shields.io/badge/CVPR-2025-FFD93D.svg)](https://cvpr.thecvf.com/Conferences/2025)
-[![Project](https://img.shields.io/badge/Project-NeighborRetr-4D96FF.svg)](https://github.com/zzezze/NeighborRetr)
+[![Project](https://img.shields.io/badge/Project-NeighborRetr-4D96FF.svg)](https://zzezze.github.io/NeighborRetr/)
 [![Paper](https://img.shields.io/badge/Paper-arxiv.2503.10526-FF6B6B.svg)](https://arxiv.org/abs/2503.10526)
 [![Stars](https://img.shields.io/github/stars/zzezze/NeighborRetr?style=social)](https://github.com/zzezze/NeighborRetr)
 </div>
