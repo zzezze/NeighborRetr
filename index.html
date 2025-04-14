@@ -334,9 +334,9 @@
     <div class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="#abstract">Abstract</a>
-        <a class="navbar-item" href="#hubness">Hubness Observation</a>
-        <a class="navbar-item" href="#method">Method Overview</a>
-        <a class="navbar-item" href="#comparative">Comparative Experiments</a>
+        <a class="navbar-item" href="#hubness">Observation</a>
+        <a class="navbar-item" href="#method">Method</a>
+        <a class="navbar-item" href="#comparative">Experiments</a>
         <a class="navbar-item" href="#visualization">Visualization</a>
         <a class="navbar-item" href="#BibTeX">Citation</a>
       </div>
@@ -392,6 +392,16 @@
                   <span>arXiv</span>
                 </a>
               </span>
+              <!-- Project Link -->
+              <span class="link-block">
+                <a href="https://zzezze.github.io/NeighborRetr/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-globe"></i>
+                  </span>
+                  <span>Project</span>
+                </a>
+              </span>
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/zzezze/NeighborRetr"
@@ -400,16 +410,6 @@
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                </a>
-              </span>
-              <!-- Demo Link (added) -->
-              <span class="link-block">
-                <a href="#"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-play-circle"></i>
-                  </span>
-                  <span>Demo</span>
                 </a>
               </span>
             </div>
@@ -491,7 +491,7 @@
             <div class="column">
               <div class="box" style="height: 100%;">
                 <h4 class="title is-5 has-text-centered" style="color: var(--primary-color);">
-                  <i class="fas fa-balance-scale mr-2"></i>Sample Centrality
+                  <i class="fas fa-bullseye mr-2"></i>Sample Centrality
                 </h4>
                 <p>
                   We measure sample centrality using an efficient memory bank approach to identify hubs, which allows us to directly emphasize the learning of hubs within each modality during training.
@@ -501,7 +501,7 @@
             <div class="column">
               <div class="box" style="height: 100%;">
                 <h4 class="title is-5 has-text-centered" style="color: var(--primary-color);">
-                  <i class="fas fa-network-wired mr-2"></i>Neighbor Adjusting
+                  <i class="fas fa-sitemap mr-2"></i>Neighbor Adjusting
                 </h4>
                 <p>
                   Our approach distinguishes between good and bad hubs by incorporating centrality into similarity measures, dynamically promoting good hubs while penalizing bad ones.
@@ -511,7 +511,7 @@
             <div class="column">
               <div class="box" style="height: 100%;">
                 <h4 class="title is-5 has-text-centered" style="color: var(--primary-color);">
-                  <i class="fas fa-globe-americas mr-2"></i>Uniform Regularization
+                  <i class="fas fa-balance-scale-right mr-2"></i>Uniform Regularization
                 </h4>
                 <p>
                   We employ a uniform marginal constraint to ensure anti-hubs have retrieval probabilities comparable to normal samples, creating a more balanced embedding space.
